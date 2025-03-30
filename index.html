@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incoterms Flashcards</title>
+    <title>MMA Flashcards</title>
     <style>
         body {
             display: flex;
@@ -53,12 +53,12 @@
         }
 
         .flashcard-front {
-            background-color: #f7c626;
+            background-color: #26f7db;
             font-weight: bold;
         }
 
         .flashcard-back {
-            background-color: #ffdc16;
+            background-color: #86fcee;
             color: rgb(0, 0, 0);
             transform: rotateY(180deg);
             display: flex;
@@ -94,16 +94,14 @@
 <body>
     <div class="flashcard" onclick="flipCard(this)">
         <div class="flashcard-inner">
-            <div class="flashcard-front" data-code="EXW">
+            <div class="flashcard-front" data-code="MMA">
                 <div class="flashcard-content">
-                    <p>EXW</p>
-                    <p>(Ex-Works)</p>
+                    <p>MMA</p>
                 </div>
             </div>
             <div class="flashcard-back">
                 <div class="flashcard-content">
-                    <p>= Valeur marchandise</p>
-                    <p>+ Emballage</p>
+                    <p>Masse Maximale Autorisée</p>
                 </div>
             </div>
         </div>
@@ -131,17 +129,17 @@
             // Update the text content immediately
             if (flashcardFront) {
                 switch (flashcardFront.getAttribute('data-code').trim()) {
-                    case 'EXW':
-                        ShowFCACard()
+                    case 'MMA':
+                        ShowCUCard()
                         break;
-                    case 'FCA':
-                        ShowCPTCard()
+                    case 'CU':
+                        ShowPTACCard()
                         break;
-                    case 'CPT':
-                        ShowCIPCard()
+                    case 'PTAC':
+                        ShowPTRACard()
                         break;
-                    case 'CIP':
-                        ShowDAPCard()
+                    case 'PTRA':
+                        ShowPVard()
                         break;
                     case 'DAP':
                         ShowDPUCard()
@@ -178,14 +176,14 @@
                     case 'EXW':
                         ShowDDPCard();
                         break;
-                    case 'FCA':
-                        ShowEXWCard();
+                    case 'CU':
+                        ShowMMACard();
                         break;
-                    case 'CPT':
-                        ShowFCACard()
+                    case 'PTAC':
+                        ShowCUCard()
                         break;
-                    case 'CIP':
-                        ShowCPTCard()
+                    case 'PTRA':
+                        ShowPTACCard()
                         break;
                     case 'DAP':
                         ShowCIPCard()
@@ -207,39 +205,39 @@
             }, 300); // Delay to allow the transition to be applied
         }
 
-        function ShowEXWCard()
+        function ShowMMACard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
             flashcardFront.setAttribute('data-code', 'EXW');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>EXW</p><p>(Ex-Works)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= Valeur marchandise</p><p>+ Emballage</p></div>';
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>MMA</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Masse Maximale Autorisée</p></div>';
         }
 
-        function ShowFCACard()
+        function ShowCUCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'FCA');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>FCA</p><p>(Free Carrier)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= EXW</p><p>+ Chargement sur le 1er moyen de transport</p><p>+ Douane export</p><p>+ Pré-acheminement</p></div>';
+            flashcardFront.setAttribute('data-code', 'CU');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CU</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Charge Utile</p></div>';
         }
 
-        function ShowCPTCard()
+        function ShowPTACCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'CPT');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CPT</p><p>(Carriage paid to)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= FCA</p><p>+ THC (selon Liner-Terms)</p><p>+ Transport principal</p><p>(fret de base + frais annexes/surcharges)</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTAC');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTAC</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Poids Total Autorisé en Charge</p></div>';
         }
-        function ShowCIPCard()
+        function ShowPTRACard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'CIP');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CIP</p><p>(Carriage insurance paid to)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= CPT</p><p>+ Assurance</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTRA');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTRA</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Poids Total Roulant Autorisé</p></div>';
         }
         function ShowDAPCard()
         {
