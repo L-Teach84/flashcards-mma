@@ -94,14 +94,14 @@
 <body>
     <div class="flashcard" onclick="flipCard(this)">
         <div class="flashcard-inner">
-            <div class="flashcard-front" data-code="MMA">
+            <div class="flashcard-front" data-code="PTAC2">
                 <div class="flashcard-content">
-                    <p>MMA</p>
+                    <p>PTAC porteur 2 essieux</p>
                 </div>
             </div>
             <div class="flashcard-back">
                 <div class="flashcard-content">
-                    <p>Masse Maximale Autorisée</p>
+                    <p>19T</p>
                 </div>
             </div>
         </div>
@@ -129,28 +129,33 @@
             // Update the text content immediately
             if (flashcardFront) {
                 switch (flashcardFront.getAttribute('data-code').trim()) {
-                    case 'MMA':
-                        ShowCUCard()
+                    case 'PTAC2':
+                        ShowPTAC3Card()
                         break;
-                    case 'CU':
-                        ShowPTACCard()
+                    case 'PTAC3':
+                        ShowPTAC4Card()
                         break;
-                    case 'PTAC':
-                        ShowPTRACard()
+                    case 'PTAC4':
+                        ShowPTRA4Card()
                         break;
-                    case 'PTRA':
-                        ShowPVard()
+                    case 'PTRA4':
+                        ShowPTRA5Card()
                         break;
-                    case 'DAP':
-                        ShowDPUCard()
+                    case 'PTRA5':
+                        ShowCUporteurCard()
                         break;
-                    case 'DPU':
-                        ShowDDPCard()
+                    case 'CUporteur':
+                        ShowCUarticuléCard()
                         break;
-                    case 'DDP':
-                        ShowEXWCard()
+                    case 'CUarticulé':
+                        ShowMMAisoléCard()
                         break;
-              
+                    case 'MMAisolé':
+                        ShowMMAarticuléCard()
+                        break;
+                    case 'MMAarticulé':
+                        ShowPTAC2Card()
+                        break;
                 }
             }
 
@@ -173,28 +178,33 @@
             // Update the text content immediately
             if (flashcardFront) {
                 switch (flashcardFront.getAttribute('data-code').trim()) {
-                    case 'EXW':
-                        ShowDDPCard();
+                    case 'PTAC2':
+                        ShowMMAarticuléCard();
                         break;
-                    case 'CU':
-                        ShowMMACard();
+                    case 'PTAC3':
+                        ShowPTAC2Card();
                         break;
-                    case 'PTAC':
-                        ShowCUCard()
+                    case 'PTAC4':
+                        ShowPTAC3Card()
                         break;
-                    case 'PTRA':
-                        ShowPTACCard()
+                    case 'PTRA4':
+                        ShowPTAC4Card()
                         break;
-                    case 'DAP':
-                        ShowCIPCard()
+                    case 'PTRA5':
+                        ShowPTRA4Card()
                         break;
-                    case 'DPU':
-                        ShowDAPCard()
+                    case 'CUporteur':
+                        ShowPTRA5Card()
                         break;
-                    case 'DDP':
-                        ShowDPUCard()
+                    case 'CUarticulé':
+                        ShowCUporteurCard()
                         break;
-                    
+                    case 'MMAisolé':
+                        ShowCUarticuléCard()
+                        break;
+                    case 'MMAarticulé':
+                        ShowMMAisoléCard()
+                        break;
                         
                 }
             }
@@ -205,65 +215,80 @@
             }, 300); // Delay to allow the transition to be applied
         }
 
-        function ShowMMACard()
+        function ShowPTAC2Card()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'EXW');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>MMA</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Masse Maximale Autorisée</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTAC2');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTAC porteur 2 essieux</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>19T</p></div>';
         }
 
-        function ShowCUCard()
+        function ShowPTAC3Card()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'CU');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CU</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Charge Utile</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTAC3');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTAC porteur 3 essieux</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>26T</p></div>';
         }
 
-        function ShowPTACCard()
+        function ShowPTAC4Card()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'PTAC');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTAC</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Poids Total Autorisé en Charge</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTAC4');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTAC porteur 4 essieux</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>32T</p></div>';
         }
-        function ShowPTRACard()
+        function ShowPTRA4Card()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'PTRA');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTRA</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>Poids Total Roulant Autorisé</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTRA4');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTRA véhicule articulé jusqu\'à 4 essieux</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>38T</p></div>';
         }
-        function ShowDAPCard()
+        function ShowPTRA5Card()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'DAP');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>DAP</p><p>(Delivered at place)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= CIP</p><p>+ THC (selon Liner-Terms)</p><p>+ post-acheminement</p></div>';
+            flashcardFront.setAttribute('data-code', 'PTRA5');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>PTRA véhicule articulé 5 essieux et +</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>44T</p></div>';
         }
-        function ShowDPUCard()
+        function ShowCUporteurCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'DPU');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>DPU</p><p>(Delivered at place unloaded)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= DAP</p><p>+ Déchargement usine acheteur</p></div>';
+            flashcardFront.setAttribute('data-code', 'CUporteur');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CU porteur</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>CU = MMA - PV</p></div>';
         }
-        function ShowDDPCard()
+        function ShowCUarticuléCard()
         {
             const flashcardFront = document.querySelector('.flashcard-front');
             const flashcardBack = document.querySelector('.flashcard-back');
-            flashcardFront.setAttribute('data-code', 'DDP');
-            flashcardFront.innerHTML = '<div class="flashcard-content"><p>DDP</p><p>(Delivered duty paid)</p></div>';
-            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= DAP</p><p>+ Liquidation douanière</p><p>+ Honoraires d\'agréé en douane (HAD)</p><p>+ TVA sur HAD</p></div>';
+            flashcardFront.setAttribute('data-code', 'CUarticulé');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>CU véhicule articulé</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>CU = MMA - </p><p>(PV tracteur + PV semi)</p></div>';
         }
-
+        function ShowMMAisoléCard()
+        {
+            const flashcardFront = document.querySelector('.flashcard-front');
+            const flashcardBack = document.querySelector('.flashcard-back');
+            flashcardFront.setAttribute('data-code', 'MMAisolé');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>MMA véhicule isolé</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= PTAC</p></div>';
+        }
+        function ShowMMAarticuléCard()
+        {
+            const flashcardFront = document.querySelector('.flashcard-front');
+            const flashcardBack = document.querySelector('.flashcard-back');
+            flashcardFront.setAttribute('data-code', 'MMAarticulé');
+            flashcardFront.innerHTML = '<div class="flashcard-content"><p>MMA véhicule articulé</p></div>';
+            flashcardBack.innerHTML = '<div class="flashcard-content"><p>= La plus petite valeur</p><p>soit PTRA véhicule tracteur</p><p>soit Somme PV tracteur + PTAC semi</p></div>';
+        }
     </script>
 </body>
 </html>
